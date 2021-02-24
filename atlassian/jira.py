@@ -916,12 +916,12 @@ class Jira(AtlassianRestAPI):
         """Assign an issue to a user. None will set it to unassigned. -1 will set it to Automatic.
         :param issue: the issue ID or key to assign
         :type issue: int or str
-        :param assignee: the user to assign the issue to
+        :param assignee: the user accountId to assign the issue to
         :type assignee: str
         :rtype: bool
         """
         url = "rest/api/2/issue/{issue}/assignee".format(issue=issue)
-        data = {"name": assignee}
+        data = {"accountId": assignee}
 
         return self.put(url, data=data)
 
